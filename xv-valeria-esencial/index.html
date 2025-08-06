@@ -98,6 +98,29 @@
       z-index: 9999;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+
+    /* Galería */
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      background-color: #f5f0e9;
+      padding: 1rem 0;
+    }
+    .carousel {
+      display: flex;
+      width: fit-content;
+      animation: scrollCarousel 50s linear infinite;
+    }
+    .carousel img {
+      height: 300px;
+      width: auto;
+      margin: 0 5px;
+      border-radius: 10px;
+    }
+    @keyframes scrollCarousel {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
   </style>
 </head>
 <body>
@@ -180,6 +203,25 @@
     <p><strong>Nombre:</strong> Laura Zavala<br><strong>CLABE:</strong> 032180000118359719</p>
   </section>
 
+  <!-- GALERÍA AUTOMÁTICA - Versión 26 -->
+  <section class="section" style="padding: 0;">
+    <div class="carousel-container">
+      <div class="carousel">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-148.jpg" alt="">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-139.jpg" alt="">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-129.jpg" alt="">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-120.jpg" alt="">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-113.jpg" alt="">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-89.jpg" alt="">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-87.jpg" alt="">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-67.jpg" alt="">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-58.jpg" alt="">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-39.jpg" alt="">
+        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-31.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
   <section class="section" style="background-color: #f5f0e9;">
     <h2 style="color: #da4167;">#XVVALERIA</h2>
     <p style="font-family: 'Great Vibes', cursive; font-size: 1.2rem; max-width: 600px; margin: auto;">
@@ -225,6 +267,3 @@
   </script>
 </body>
 </html>
-
-
-
