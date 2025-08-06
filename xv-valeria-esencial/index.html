@@ -4,64 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XV Valeria</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Bebas+Neue&family=LEMON&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
       background-color: #fff8f4;
-      font-family: 'Bebas Neue', sans-serif;
       color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
       text-align: center;
-      overflow: hidden;
     }
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #fff8f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 999;
-      transition: opacity 0.5s ease;
-    }
-    .overlay img {
-      width: 150px;
-      cursor: pointer;
-    }
-    .hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .titulo {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      margin-top: 1.5rem;
+    h1 {
+      font-size: 3.5rem;
       color: #c94f7c;
-    }
-    .mensaje {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-    }
-    .info {
       margin-top: 2rem;
+    }
+    p {
       font-size: 1.2rem;
+      margin: 1rem 0;
     }
     .mapa a {
       color: #25D366;
       text-decoration: none;
-    }
-    .confirmar {
-      margin-top: 2rem;
     }
     .confirmar a {
       background-color: #25D366;
@@ -72,28 +35,20 @@
       text-decoration: none;
       font-size: 1.1rem;
       display: inline-block;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <div class="overlay" id="overlay">
-    <img src="sobre.svg" alt="Abrir invitación" onclick="document.getElementById('overlay').classList.add('hidden')">
-    <p>Haz clic para abrir la invitación</p>
-  </div>
-
-  <div class="contenido">
-    <h1 class="titulo">XV Valeria</h1>
-    <p class="mensaje">Vive conmigo este día especial</p>
-    <div class="info">
-      <p><strong>Fecha:</strong> 8 de febrero de 2025</p>
-      <p><strong>Hora:</strong> 5:00 PM</p>
-      <p><strong>Lugar:</strong> Salón Hacienda San Andrés</p>
-      <p class="mapa"><a href="https://maps.app.goo.gl/jA4Xtw2xU8SniiuM8" target="_blank">Ver ubicación en mapa</a></p>
-      <p><strong>Código de vestimenta:</strong> Elegante</p>
-    </div>
-    <div class="confirmar">
-      <a href="https://wa.me/528138597530" target="_blank">Confirmar asistencia</a>
-    </div>
+  <h1>XV Valeria</h1>
+  <p>Vive conmigo este día especial</p>
+  <p><strong>Fecha:</strong> 8 de febrero de 2025</p>
+  <p><strong>Hora:</strong> 5:00 PM</p>
+  <p><strong>Lugar:</strong> Salón Hacienda San Andrés</p>
+  <p class="mapa"><a href="https://maps.app.goo.gl/jA4Xtw2xU8SniiuM8" target="_blank">Ver ubicación en mapa</a></p>
+  <p><strong>Código de vestimenta:</strong> Elegante</p>
+  <div class="confirmar">
+    <a href="https://wa.me/528138597530" target="_blank">Confirmar asistencia</a>
   </div>
 </body>
 </html>
