@@ -5,28 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XV Años Valeria - Invitación</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background: #fff8f4;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       text-align: center;
     }
     header {
-      background: #ffe3ec;
+      background-image: url('SF-INV-XV-DANAE-6.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
       padding: 2rem;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 4rem;
       margin-bottom: 0.5rem;
       font-family: 'Great Vibes', cursive;
     }
+    header p {
+      font-size: 1.25rem;
+    }
     .section {
-      padding: 2rem 1rem;
+      padding: 2rem;
       max-width: 700px;
-      margin: auto;
+      width: 100%;
     }
     .section h2 {
       color: #da4167;
@@ -40,6 +59,7 @@
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
+      margin-top: 1rem;
     }
     .map {
       width: 100%;
@@ -49,75 +69,39 @@
       border: none;
     }
     .footer {
+      text-align: center;
       font-size: 0.9rem;
       padding: 2rem;
       color: #aaa;
+      width: 100%;
     }
     .contador {
       font-size: 2rem;
-      background-color: #000;
-      color: #fff;
-      font-family: monospace;
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      color: #da4167;
-      font-size: 2rem;
-      text-decoration: none;
-    }
-    .music-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      background-color: #da4167;
-      color: white;
-      border-radius: 50%;
+      color: #000;
       display: flex;
       justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 9999;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .contador div {
+      background: #000;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 5px;
+      font-size: 2rem;
+      font-family: monospace;
+      box-shadow: inset 0 -4px 0 rgba(255,255,255,0.2);
+    }
+    audio {
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
-  <audio id="bg-music" autoplay loop muted>
+  <audio autoplay loop controls>
     <source src="Harry-Styles-Watermelon-Sugar-.mp3" type="audio/mpeg">
     Tu navegador no soporta audio HTML5.
   </audio>
-  <div class="music-button" onclick="toggleMusic()">
-    <i class="fas fa-music"></i>
-  </div>
-  <script>
-    const music = document.getElementById('bg-music');
-    function toggleMusic() {
-      if (music.paused) {
-        music.play();
-      } else {
-        music.pause();
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      music.muted = false;
-      music.play().catch(() => {
-        const interactionHandler = () => {
-          music.muted = false;
-          music.play();
-          document.removeEventListener('click', interactionHandler);
-        };
-        document.addEventListener('click', interactionHandler);
-      });
-    });
-  </script>
 
   <header>
     <h1>XV Años Valeria</h1>
@@ -125,7 +109,12 @@
   </header>
 
   <section class="section">
-    <div class="contador" id="contador"></div>
+    <div class="contador" id="contador">
+      <div id="dias"></div>
+      <div id="horas"></div>
+      <div id="minutos"></div>
+      <div id="segundos"></div>
+    </div>
     <h2>¿Cuándo?</h2>
     <p><strong>Fecha:</strong> 8 de febrero de 2026</p>
     <p><strong>Hora:</strong> 5:00 PM</p>
@@ -141,13 +130,7 @@
   </section>
 
   <section class="section">
-    <h2><i class="fas fa-praying-hands"></i> Ceremonia Religiosa</h2>
-    <p>Parroquia de San Cayetano<br>Hora: 3:00 PM</p>
-    <iframe class="map" src="https://maps.google.com/maps?q=Parroquia%20de%20San%20Cayetano&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" allowfullscreen loading="lazy"></iframe>
-  </section>
-
-  <section class="section">
-    <h2><i class="fas fa-people-group"></i> Salón</h2>
+    <h2>¿Dónde?</h2>
     <p>Salón Hacienda San Andrés<br>Calle Atlacomulco 1, Naucalpan, Estado de México</p>
     <iframe class="map" src="https://maps.google.com/maps?q=Salon%20Hacienda%20San%20Andres%20Calle%20Atlacomulco%201%2C%20Naucalpan%2C%20Mex&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" allowfullscreen loading="lazy"></iframe>
   </section>
@@ -160,28 +143,6 @@
   <section class="section">
     <h2>Código de vestimenta</h2>
     <p>Elegante</p>
-    <p><i class="fas fa-user-tie"></i> <i class="fas fa-person-dress"></i></p>
-  </section>
-
-  <section class="section">
-    <h2>Mesa de Regalos</h2>
-    <p>Si deseas hacer un presente, puedes hacerlo de forma económica. A continuación te compartimos los datos de una cuenta bancaria:</p>
-    <p><strong>Nombre:</strong> Laura Zavala<br><strong>CLABE:</strong> 032180000118359719</p></p>
-  </section>
-
-  <section class="section" style="background-color: #f5f0e9;">
-    <h2 style="color: #da4167;">#XVVALERIA</h2>
-    <p style="font-family: 'Great Vibes', cursive; font-size: 1.2rem; max-width: 600px; margin: auto;">
-      Comparte con nosotros todas tus fotos del evento usando el hashtag en tus publicaciones de Facebook e Instagram.
-    </p>
-    <div class="social-icons" style="margin-top: 1rem;">
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
   </section>
 
   <footer class="footer">
@@ -190,19 +151,28 @@
 
   <script>
     const targetDate = new Date("2026-02-08T17:00:00").getTime();
-    const contador = document.getElementById("contador");
+    const diasEl = document.getElementById("dias");
+    const horasEl = document.getElementById("horas");
+    const minutosEl = document.getElementById("minutos");
+    const segundosEl = document.getElementById("segundos");
 
-    setInterval(() => {
+    function updateCountdown() {
       const now = new Date().getTime();
-      const diferencia = targetDate - now;
+      const diff = targetDate - now;
 
-      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diff % (1000 * 60)) / 1000);
 
-      contador.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
-    }, 1000);
+      diasEl.innerHTML = `${dias} días`;
+      horasEl.innerHTML = `${horas} h`;
+      minutosEl.innerHTML = `${minutos} m`;
+      segundosEl.innerHTML = `${segundos} s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
     function registrarClickWhatsApp() {
       fetch("https://your-endpoint.com/registrar-clic", {
