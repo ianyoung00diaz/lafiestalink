@@ -1,22 +1,14 @@
-from pathlib import Path
-from zipfile import ZipFile
-
-# Crear estructura de carpetas
-folder_name = "xv-valeria-esencial"
-html_file = Path(f"/mnt/data/{folder_name}/index.html")
-html_file.parent.mkdir(parents=True, exist_ok=True)
-
-# Contenido del HTML actualizado
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XV Años Valeria - Invitación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: #fff8f4;
       color: #333;
     }
@@ -28,6 +20,7 @@ html_content = """<!DOCTYPE html>
     header h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      font-family: 'Great Vibes', cursive;
     }
     .section {
       padding: 2rem;
@@ -91,18 +84,8 @@ html_content = """<!DOCTYPE html>
   </section>
 
   <footer class="footer">
-    Hecho con ❤️ por La Fiesta Link
+    Hecho con ✨ por La Fiesta Link
   </footer>
 </body>
 </html>
-"""
 
-# Escribir archivo
-html_file.write_text(html_content, encoding="utf-8")
-
-# Crear el ZIP
-zip_path = Path("/mnt/data/xv-valeria-esencial.zip")
-with ZipFile(zip_path, 'w') as zipf:
-    zipf.write(html_file, arcname=f"{folder_name}/index.html")
-
-zip_path.name
