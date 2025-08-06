@@ -1,269 +1,55 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XV Años Valeria - Invitación</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #fff8f4;
-      color: #333;
-      text-align: center;
-    }
-    header {
-      background-image: url('SF-INV-XV-DANAE-6.jpg');
-      background-size: cover;
-      background-position: center 8%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
-    }
-    header h1 {
-      font-size: 3rem;
-      font-family: 'Great Vibes', cursive;
-      margin: 0;
-    }
-    header p {
-      font-size: 1.5rem;
-      margin: 0.5rem 0 0;
-    }
-    .section {
-      padding: 2rem 1rem;
-      max-width: 700px;
-      margin: auto;
-    }
-    .section h2 {
-      color: #da4167;
-      margin-bottom: 1rem;
-    }
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: #da4167;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    .map {
-      width: 100%;
-      height: 300px;
-      margin-top: 1rem;
-      border-radius: 8px;
-      border: none;
-    }
-    .footer {
-      font-size: 0.9rem;
-      padding: 2rem;
-      color: #aaa;
-    }
-    .contador {
-      font-size: 2rem;
-      background-color: #000;
-      color: #fff;
-      font-family: monospace;
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      color: #da4167;
-      font-size: 2rem;
-      text-decoration: none;
-    }
-    .music-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      background-color: #da4167;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 9999;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
+<!-- ... código previo sin cambios ... -->
 
-    /* Galería */
-    .carousel-container {
-      width: 100%;
-      overflow: hidden;
-      background-color: #f5f0e9;
-      padding: 1rem 0;
-    }
-    .carousel {
-      display: flex;
-      width: fit-content;
-      animation: scrollCarousel 50s linear infinite;
-    }
-    .carousel img {
-      height: 300px;
-      width: auto;
-      margin: 0 5px;
-      border-radius: 10px;
-    }
-    @keyframes scrollCarousel {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-  </style>
-</head>
-<body>
-  <audio id="bg-music" autoplay loop muted>
-    <source src="Harry-Styles-Watermelon-Sugar-.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
-  <div class="music-button" onclick="toggleMusic()">
-    <i class="fas fa-music"></i>
+<!-- GALERÍA CORREGIDA - Versión 28 -->
+<section class="section" style="padding: 0;">
+  <div class="carousel-container">
+    <div class="carousel" id="galeria">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-148.jpg" alt="">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-139.jpg" alt="">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-129.jpg" alt="">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-120.jpg" alt="">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-113.jpg" alt="">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-89.jpg" alt="">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-87.jpg" alt="">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-67.jpg" alt="">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-58.jpg" alt="">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-39.jpg" alt="">
+      <img src="https://ianyoung00diaz.github.io/lafiestalink/imagenes/SF-INV-XV-DANAE-31.jpg" alt="">
+    </div>
   </div>
-  <script>
-    const music = document.getElementById('bg-music');
-    function toggleMusic() {
-      if (music.paused) {
-        music.play();
-      } else {
-        music.pause();
-      }
-    }
-    window.addEventListener('DOMContentLoaded', () => {
-      music.muted = false;
-      music.play().catch(() => {
-        const interactionHandler = () => {
-          music.muted = false;
-          music.play();
-          document.removeEventListener('click', interactionHandler);
-        };
-        document.addEventListener('click', interactionHandler);
-      });
-    });
-  </script>
+</section>
 
-  <header>
-    <h1>XV Años Valeria</h1>
-    <p>¡Vive conmigo este día especial!</p>
-  </header>
+<style>
+  .carousel-container {
+    overflow: hidden;
+    background-color: #f5f0e9;
+    padding: 1rem 0;
+  }
+  .carousel {
+    white-space: nowrap;
+    animation: scrollCarousel 60s linear infinite;
+    animation-play-state: paused;
+  }
+  .carousel img {
+    display: inline-block;
+    height: 300px;
+    width: auto;
+    margin: 0 5px;
+    border-radius: 10px;
+  }
+  @keyframes scrollCarousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
 
-  <section class="section">
-    <div class="contador" id="contador"></div>
-    <h2>¿Cuándo?</h2>
-    <p><strong>Fecha:</strong> 8 de febrero de 2026</p>
-    <p><strong>Hora:</strong> 5:00 PM</p>
-  </section>
+<script>
+  // Activar carrusel solo cuando las imágenes estén listas
+  window.addEventListener("load", () => {
+    const galeria = document.getElementById("galeria");
+    galeria.style.animationPlayState = "running";
+  });
+</script>
 
-  <section class="section">
-    <h2>Familia</h2>
-    <p>¡Celebra con nosotros este día tan maravilloso!</p>
-    <h3>Mis Padres</h3>
-    <p>Laura Zavala<br>Miguel Juárez</p>
-    <h3>Mis Padrinos</h3>
-    <p>Florencia Hernández<br>Manuel Zavala</p>
-  </section>
+<!-- ... resto del HTML sin cambios ... -->
 
-  <section class="section">
-    <h2><i class="fas fa-praying-hands"></i> Ceremonia Religiosa</h2>
-    <p>Parroquia de San Cayetano<br>Hora: 3:00 PM</p>
-    <iframe class="map" src="https://maps.google.com/maps?q=Parroquia%20de%20San%20Cayetano&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" allowfullscreen loading="lazy"></iframe>
-  </section>
-
-  <section class="section">
-    <h2><i class="fas fa-people-group"></i> Salón</h2>
-    <p>Salón Hacienda San Andrés<br>Calle Atlacomulco 1, Naucalpan, Estado de México</p>
-    <iframe class="map" src="https://maps.google.com/maps?q=Salon%20Hacienda%20San%20Andres%20Calle%20Atlacomulco%201%2C%20Naucalpan%2C%20Mex&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" allowfullscreen loading="lazy"></iframe>
-  </section>
-
-  <section class="section">
-    <h2>Confirma tu asistencia</h2>
-    <a class="btn" href="https://wa.me/528138597530" target="_blank" onclick="registrarClickWhatsApp()">Confirmar por WhatsApp</a>
-  </section>
-
-  <section class="section">
-    <h2>Código de vestimenta</h2>
-    <p>Elegante</p>
-    <p><i class="fas fa-user-tie"></i> <i class="fas fa-person-dress"></i></p>
-  </section>
-
-  <section class="section">
-    <h2>Mesa de Regalos</h2>
-    <p>Si deseas hacer un presente, puedes hacerlo de forma económica. A continuación te compartimos los datos de una cuenta bancaria:</p>
-    <p><strong>Nombre:</strong> Laura Zavala<br><strong>CLABE:</strong> 032180000118359719</p>
-  </section>
-
-  <!-- GALERÍA AUTOMÁTICA - Versión 26 -->
-  <section class="section" style="padding: 0;">
-    <div class="carousel-container">
-      <div class="carousel">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-148.jpg" alt="">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-139.jpg" alt="">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-129.jpg" alt="">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-120.jpg" alt="">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-113.jpg" alt="">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-89.jpg" alt="">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-87.jpg" alt="">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-67.jpg" alt="">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-58.jpg" alt="">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-39.jpg" alt="">
-        <img src="https://lafiestalink.store/imagenes/SF-INV-XV-NAE-31.jpg" alt="">
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background-color: #f5f0e9;">
-    <h2 style="color: #da4167;">#XVVALERIA</h2>
-    <p style="font-family: 'Great Vibes', cursive; font-size: 1.2rem; max-width: 600px; margin: auto;">
-      Comparte con nosotros todas tus fotos del evento usando el hashtag en tus publicaciones de Facebook e Instagram.
-    </p>
-    <div class="social-icons" style="margin-top: 1rem;">
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-  </section>
-
-  <footer class="footer">
-    Hecho con ✨ por La Fiesta Link
-  </footer>
-
-  <script>
-    const targetDate = new Date("2026-02-08T17:00:00").getTime();
-    const contador = document.getElementById("contador");
-
-    setInterval(() => {
-      const now = new Date().getTime();
-      const diferencia = targetDate - now;
-
-      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-      contador.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
-    }, 1000);
-
-    function registrarClickWhatsApp() {
-      fetch("https://your-endpoint.com/registrar-clic", {
-        method: "POST",
-        body: JSON.stringify({ evento: "whatsapp", timestamp: Date.now() }),
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-  </script>
-</body>
-</html>
