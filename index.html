@@ -3,184 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XV Años Valeria - Invitación</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter&display=swap" rel="stylesheet">
+  <title>La Fiesta Link - Invitaciones Digitales</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background: #fff8f4;
       color: #333;
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      text-align: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      overflow: hidden;
+      position: relative;
     }
-    header {
-      background-image: url('SF-INV-XV-DANAE-6.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      width: 100%;
+    .logo-container {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      margin-bottom: 2rem;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: #fff;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
-      padding: 2rem;
     }
-    header h1 {
-      font-size: 4rem;
-      margin-bottom: 0.5rem;
-      font-family: 'Great Vibes', cursive;
-    }
-    header p {
-      font-size: 1.25rem;
-    }
-    .section {
-      padding: 2rem;
-      max-width: 700px;
+    .logo-part {
+      position: absolute;
       width: 100%;
+      height: 100%;
     }
-    .section h2 {
-      color: #da4167;
-      margin-bottom: 1rem;
+    .mano {
+      width: 60px;
+      height: auto;
+      position: absolute;
+      top: 55%;
+      left: 45%;
+      transform: translate(-50%, -50%);
+      animation: clickLoop 6s ease-in-out infinite;
+      z-index: 10;
     }
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: #da4167;
+    @keyframes clickLoop {
+      0%, 100% { transform: translate(-100px, 0); }
+      10% { transform: translate(0, 0); }
+      20% { transform: translate(-20px, -20px); }
+      30% { transform: translate(-20px, -20px); }
+      40% { transform: translate(40px, 60px); }
+      50% { transform: translate(40px, 60px); }
+      60% { transform: translate(-100px, 0); }
+    }
+    .desc {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+    .whatsapp {
+      display: inline-flex;
+      align-items: center;
+      background-color: #25D366;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
       font-weight: bold;
-      margin-top: 1rem;
+      font-size: 1.1rem;
+      animation: latido 1.8s ease-in-out infinite;
     }
-    .map {
-      width: 100%;
-      height: 300px;
-      margin-top: 1rem;
-      border-radius: 8px;
-      border: none;
+    .whatsapp img {
+      width: 24px;
+      height: 24px;
+      margin-right: 0.5rem;
     }
-    .footer {
-      text-align: center;
+    @keyframes latido {
+      0%, 100% {
+        transform: scale(1);
+      }
+      25% {
+        transform: scale(1.08);
+      }
+      50% {
+        transform: scale(0.95);
+      }
+      75% {
+        transform: scale(1.05);
+      }
+    }
+    footer {
+      margin-top: 3rem;
       font-size: 0.9rem;
-      padding: 2rem;
       color: #aaa;
-      width: 100%;
     }
-    .contador {
+    .emoji {
+      position: absolute;
       font-size: 2rem;
-      color: #000;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      animation: float 10s linear infinite;
+      opacity: 0.6;
     }
-    .contador div {
-      background: #000;
-      color: #fff;
-      padding: 1rem 1.5rem;
-      border-radius: 5px;
-      font-size: 2rem;
-      font-family: monospace;
-      box-shadow: inset 0 -4px 0 rgba(255,255,255,0.2);
-    }
-    audio {
-      margin-top: 1rem;
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.8); }
+      100% { transform: translateY(-100vh) scale(1.2); }
     }
   </style>
 </head>
 <body>
-  <audio autoplay loop controls>
-    <source src="Harry-Styles-Watermelon-Sugar-.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
+  <!-- Emojis flotantes -->
+  <div class="emoji" style="left: 10%; animation-delay: 0s;">🎉</div>
+  <div class="emoji" style="left: 30%; animation-delay: 2s;">💌</div>
+  <div class="emoji" style="left: 50%; animation-delay: 4s;">🎈</div>
+  <div class="emoji" style="left: 70%; animation-delay: 1s;">✨</div>
+  <div class="emoji" style="left: 90%; animation-delay: 3s;">🎊</div>
 
-  <header>
-    <h1>XV Años Valeria</h1>
-    <p>Vive conmigo este día especial</p>
-  </header>
+  <!-- Logo con animación -->
+  <div class="logo-container">
+    <object data="sobre.svg" type="image/svg+xml" class="logo-part"></object>
+    <object data="texto.svg" type="image/svg+xml" class="logo-part"></object>
+    <img src="mano.svg" alt="mano" class="mano" />
+  </div>
 
-  <section class="section">
-    <div class="contador" id="contador">
-      <div id="dias"></div>
-      <div id="horas"></div>
-      <div id="minutos"></div>
-      <div id="segundos"></div>
-    </div>
-    <h2>¿Cuándo?</h2>
-    <p><strong>Fecha:</strong> 8 de febrero de 2026</p>
-    <p><strong>Hora:</strong> 5:00 PM</p>
-  </section>
+  <p class="desc">
+    Invitaciones digitales modernas, atrevidas y hechas con estilo. Crea una experiencia única para tus invitados con diseños personalizados, animaciones suaves y enlaces directos a todo lo importante.
+  </p>
 
-  <section class="section">
-    <h2>Familia</h2>
-    <p>¡Celebra con nosotros este día tan maravilloso!</p>
-    <h3>Mis Padres</h3>
-    <p>Laura Zavala<br>Miguel Juárez</p>
-    <h3>Mis Padrinos</h3>
-    <p>Florencia Hernández<br>Manuel Zavala</p>
-  </section>
+  <a class="whatsapp" href="https://wa.me/528138597530" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    Cotiza por WhatsApp
+  </a>
 
-  <section class="section">
-    <h2>¿Dónde?</h2>
-    <p>Salón Hacienda San Andrés<br>Calle Atlacomulco 1, Naucalpan, Estado de México</p>
-    <iframe class="map" src="https://maps.google.com/maps?q=Salon%20Hacienda%20San%20Andres%20Calle%20Atlacomulco%201%2C%20Naucalpan%2C%20Mex&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" allowfullscreen loading="lazy"></iframe>
-  </section>
-
-  <section class="section">
-    <h2>Confirma tu asistencia</h2>
-    <a class="btn" href="https://wa.me/528138597530" target="_blank" onclick="registrarClickWhatsApp()">Confirmar por WhatsApp</a>
-  </section>
-
-  <section class="section">
-    <h2>Código de vestimenta</h2>
-    <p>Elegante</p>
-  </section>
-
-  <footer class="footer">
+  <footer>
     Hecho con ✨ por La Fiesta Link
   </footer>
 
-  <script>
-    const targetDate = new Date("2026-02-08T17:00:00").getTime();
-    const diasEl = document.getElementById("dias");
-    const horasEl = document.getElementById("horas");
-    const minutosEl = document.getElementById("minutos");
-    const segundosEl = document.getElementById("segundos");
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
-
-      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((diff % (1000 * 60)) / 1000);
-
-      diasEl.innerHTML = `${dias} días`;
-      horasEl.innerHTML = `${horas} h`;
-      minutosEl.innerHTML = `${minutos} m`;
-      segundosEl.innerHTML = `${segundos} s`;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    function registrarClickWhatsApp() {
-      fetch("https://your-endpoint.com/registrar-clic", {
-        method: "POST",
-        body: JSON.stringify({ evento: "whatsapp", timestamp: Date.now() }),
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-  </script>
+  <!-- Tracker Plausible -->
+  <script defer data-domain="lafiestalink.store" src="https://plausible.io/js/script.js"></script>
 </body>
 </html>
+
