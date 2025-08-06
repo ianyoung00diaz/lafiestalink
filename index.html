@@ -69,11 +69,26 @@
       border-radius: 30px;
       font-weight: bold;
       font-size: 1.1rem;
+      animation: latido 1.8s ease-in-out infinite;
     }
     .whatsapp img {
       width: 24px;
       height: 24px;
       margin-right: 0.5rem;
+    }
+    @keyframes latido {
+      0%, 100% {
+        transform: scale(1);
+      }
+      25% {
+        transform: scale(1.08);
+      }
+      50% {
+        transform: scale(0.95);
+      }
+      75% {
+        transform: scale(1.05);
+      }
     }
     footer {
       margin-top: 3rem;
