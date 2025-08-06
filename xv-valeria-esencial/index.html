@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XV Años Valeria - Invitación</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       margin: 0;
@@ -62,13 +63,59 @@
       border-radius: 10px;
       margin-bottom: 2rem;
     }
+    .social-icons a {
+      margin: 0 10px;
+      color: #da4167;
+      font-size: 2rem;
+      text-decoration: none;
+    }
+    .music-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #da4167;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
-  <audio autoplay loop controls style="margin-top: 1rem;">
+  <audio id="bg-music" autoplay loop>
     <source src="Harry-Styles-Watermelon-Sugar-.mp3" type="audio/mpeg">
     Tu navegador no soporta audio HTML5.
   </audio>
+  <div class="music-button" onclick="toggleMusic()">
+    <i class="fas fa-music"></i>
+  </div>
+  <script>
+    const music = document.getElementById('bg-music');
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      music.play().catch(() => {
+        const interactionHandler = () => {
+          music.play();
+          document.removeEventListener('click', interactionHandler);
+        };
+        document.addEventListener('click', interactionHandler);
+      });
+    });
+  </script>
 
   <header>
     <h1>XV Años Valeria</h1>
@@ -92,7 +139,13 @@
   </section>
 
   <section class="section">
-    <h2>¿Dónde?</h2>
+    <h2><i class="fas fa-praying-hands"></i> Ceremonia Religiosa</h2>
+    <p>Parroquia de San Cayetano<br>Hora: 3:00 PM</p>
+    <iframe class="map" src="https://maps.google.com/maps?q=Parroquia%20de%20San%20Cayetano&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" allowfullscreen loading="lazy"></iframe>
+  </section>
+
+  <section class="section">
+    <h2><i class="fas fa-people-group"></i> Salón</h2>
     <p>Salón Hacienda San Andrés<br>Calle Atlacomulco 1, Naucalpan, Estado de México</p>
     <iframe class="map" src="https://maps.google.com/maps?q=Salon%20Hacienda%20San%20Andres%20Calle%20Atlacomulco%201%2C%20Naucalpan%2C%20Mex&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" allowfullscreen loading="lazy"></iframe>
   </section>
@@ -105,6 +158,28 @@
   <section class="section">
     <h2>Código de vestimenta</h2>
     <p>Elegante</p>
+    <p><i class="fas fa-user-tie"></i> <i class="fas fa-person-dress"></i></p>
+  </section>
+
+  <section class="section">
+    <h2>Mesa de Regalos</h2>
+    <p>Si deseas hacer un presente, puedes hacerlo de forma económica. A continuación te compartimos los datos de una cuenta bancaria:</p>
+    <p><strong>Nombre:</strong> Laura Zavala<br><strong>CLABE:</strong> 032180000118359719</p></p>
+  </section>
+
+  <section class="section" style="background-color: #f5f0e9;">
+    <h2 style="color: #da4167;">#XVVALERIA</h2>
+    <p style="font-family: 'Great Vibes', cursive; font-size: 1.2rem; max-width: 600px; margin: auto;">
+      Comparte con nosotros todas tus fotos del evento usando el hashtag en tus publicaciones de Facebook e Instagram.
+    </p>
+    <div class="social-icons" style="margin-top: 1rem;">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
   </section>
 
   <footer class="footer">
