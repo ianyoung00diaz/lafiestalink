@@ -16,9 +16,9 @@
       text-align: center;
     }
     header {
-      background-image: url('SF-INV-XV-DANAE-113.jpg');
+      background-image: url('SF-INV-XV-DANAE-6.jpg');
       background-size: cover;
-      background-position: center 12%;
+      background-position: center 8%;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -53,16 +53,11 @@
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-    }
-    .btn.heartbeat {
       animation: heartbeat 1.5s infinite;
     }
     @keyframes heartbeat {
-      0% { transform: scale(1); }
-      14% { transform: scale(1.3); }
-      28% { transform: scale(1); }
-      42% { transform: scale(1.3); }
-      70% { transform: scale(1); }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
     .map {
       width: 100%;
@@ -71,76 +66,96 @@
       border-radius: 8px;
       border: none;
     }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin: 2rem auto;
-      max-width: 90%;
-    }
-    .gallery img {
-      max-width: 100px;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: transform 0.2s ease-in-out;
-    }
-    .gallery img:hover {
-      transform: scale(1.1);
-    }
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2rem;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .prev { left: 20px; }
-    .next { right: 20px; }
     .footer {
       font-size: 0.9rem;
       padding: 2rem;
       color: #aaa;
     }
+    .contador {
+      font-size: 2rem;
+      background-color: #000;
+      color: #fff;
+      font-family: monospace;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      color: #da4167;
+      font-size: 2rem;
+      text-decoration: none;
+    }
+    .music-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #da4167;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .gallery img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      max-height: 250px;
+    }
   </style>
 </head>
 <body>
+  <audio id="bg-music" autoplay loop muted>
+    <source src="Harry-Styles-Watermelon-Sugar-.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+  <div class="music-button" onclick="toggleMusic()">
+    <i class="fas fa-music"></i>
+  </div>
+  <script>
+    const music = document.getElementById('bg-music');
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      music.muted = false;
+      music.play().catch(() => {
+        const interactionHandler = () => {
+          music.muted = false;
+          music.play();
+          document.removeEventListener('click', interactionHandler);
+        };
+        document.addEventListener('click', interactionHandler);
+      });
+    });
+  </script>
+
   <header>
     <h1>XV Años Valeria</h1>
     <p>¡Vive conmigo este día especial!</p>
   </header>
 
   <section class="section">
+    <div class="contador" id="contador"></div>
     <h2>¿Cuándo?</h2>
     <p><strong>Fecha:</strong> 8 de febrero de 2026</p>
     <p><strong>Hora:</strong> 5:00 PM</p>
@@ -169,7 +184,7 @@
 
   <section class="section">
     <h2>Confirma tu asistencia</h2>
-    <a class="btn heartbeat" href="https://wa.me/528138597530" target="_blank">Confirmar por WhatsApp</a>
+    <a class="btn" href="https://wa.me/528138597530" target="_blank" onclick="registrarClickWhatsApp()">Confirmar por WhatsApp</a>
   </section>
 
   <section class="section">
@@ -185,28 +200,14 @@
   </section>
 
   <section class="section">
-    <h2 style="color: #da4167;">Galería</h2>
+    <h2>Galería</h2>
     <div class="gallery">
-      <img src="SF-INV-XV-DANAE-31.jpg" onclick="openLightbox(0)">
-      <img src="SF-INV-XV-DANAE-39.jpg" onclick="openLightbox(1)">
-      <img src="SF-INV-XV-DANAE-58.jpg" onclick="openLightbox(2)">
-      <img src="SF-INV-XV-DANAE-67.jpg" onclick="openLightbox(3)">
-      <img src="SF-INV-XV-DANAE-87.jpg" onclick="openLightbox(4)">
-      <img src="SF-INV-XV-DANAE-89.jpg" onclick="openLightbox(5)">
-      <img src="SF-INV-XV-DANAE-113.jpg" onclick="openLightbox(6)">
-      <img src="SF-INV-XV-DANAE-120.jpg" onclick="openLightbox(7)">
-      <img src="SF-INV-XV-DANAE-129.jpg" onclick="openLightbox(8)">
-      <img src="SF-INV-XV-DANAE-139.jpg" onclick="openLightbox(9)">
-      <img src="SF-INV-XV-DANAE-148.jpg" onclick="openLightbox(10)">
+      <img src="img1.jpg" alt="Foto 1">
+      <img src="img2.jpg" alt="Foto 2">
+      <img src="img3.jpg" alt="Foto 3">
+      <img src="img4.jpg" alt="Foto 4">
     </div>
   </section>
-
-  <div class="lightbox" id="lightbox">
-    <button class="nav-btn prev" onclick="changeSlide(-1)">&#10094;</button>
-    <img id="lightbox-img" src="" alt="Imagen grande">
-    <a href="#" class="close-btn" onclick="closeLightbox()">&times;</a>
-    <button class="nav-btn next" onclick="changeSlide(1)">&#10095;</button>
-  </div>
 
   <section class="section" style="background-color: #f5f0e9;">
     <h2 style="color: #da4167;">#XVVALERIA</h2>
@@ -228,35 +229,27 @@
   </footer>
 
   <script>
-    const images = [
-      "SF-INV-XV-DANAE-31.jpg",
-      "SF-INV-XV-DANAE-39.jpg",
-      "SF-INV-XV-DANAE-58.jpg",
-      "SF-INV-XV-DANAE-67.jpg",
-      "SF-INV-XV-DANAE-87.jpg",
-      "SF-INV-XV-DANAE-89.jpg",
-      "SF-INV-XV-DANAE-113.jpg",
-      "SF-INV-XV-DANAE-120.jpg",
-      "SF-INV-XV-DANAE-129.jpg",
-      "SF-INV-XV-DANAE-139.jpg",
-      "SF-INV-XV-DANAE-148.jpg"
-    ];
+    const targetDate = new Date("2026-02-08T17:00:00").getTime();
+    const contador = document.getElementById("contador");
 
-    let currentIndex = 0;
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diferencia = targetDate - now;
 
-    function openLightbox(index) {
-      currentIndex = index;
-      document.getElementById("lightbox-img").src = images[index];
-      document.getElementById("lightbox").style.display = "flex";
-    }
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
 
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
+      contador.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }, 1000);
 
-    function changeSlide(direction) {
-      currentIndex = (currentIndex + direction + images.length) % images.length;
-      document.getElementById("lightbox-img").src = images[currentIndex];
+    function registrarClickWhatsApp() {
+      fetch("https://your-endpoint.com/registrar-clic", {
+        method: "POST",
+        body: JSON.stringify({ evento: "whatsapp", timestamp: Date.now() }),
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
   </script>
 </body>
