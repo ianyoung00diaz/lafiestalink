@@ -300,11 +300,15 @@
     contador.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
   }, 1000);
 
-  function toggleMusic() {
-    const music = document.getElementById("bg-music");
-    if (music.paused) music.play();
-    else music.pause();
+ function toggleMusic() {
+  const music = document.getElementById("bg-music");
+  if (music.paused) {
+    music.muted = false; // quitar el mute
+    music.play();
+  } else {
+    music.pause();
   }
+}
 </script>
 </body>
 </html>
