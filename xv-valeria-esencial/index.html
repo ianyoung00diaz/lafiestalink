@@ -1,0 +1,174 @@
+<!-- VERSIÓN FINAL 33: Todo unificado con galería funcional tipo carrusel -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XV Años Valeria - Invitación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fff8f4;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background-image: url('img/galeria/SF-INV-XV-DANAE-6.jpg');
+      background-size: cover;
+      background-position: center 8%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    }
+    header h1 {
+      font-size: 3rem;
+      font-family: 'Great Vibes', cursive;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.5rem;
+      margin: 0.5rem 0 0;
+    }
+    .gallery-section {
+      background-color: #f8f1eb;
+      padding: 2rem 1rem;
+    }
+    .gallery-section h2 {
+      color: #da4167;
+    }
+    .carousel-container {
+      position: relative;
+      max-width: 90%;
+      margin: auto;
+      overflow: hidden;
+    }
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-slide img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      color: #da4167;
+      font-weight: bold;
+      font-size: 24px;
+      transition: 0.3s;
+      user-select: none;
+      background-color: rgba(255,255,255,0.6);
+      border-radius: 50%;
+    }
+    .next {
+      right: 10px;
+    }
+    .prev {
+      left: 10px;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80vh;
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>XV Años Valeria</h1>
+    <p>¡Vive conmigo este día especial!</p>
+  </header>
+
+  <section class="gallery-section">
+    <h2>Galería</h2>
+    <div class="carousel-container">
+      <div class="carousel-slide" id="carousel">
+        <img src="img/galeria/SF-INV-XV-DANAE-6.jpg" alt="Imagen 1" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-31.jpg" alt="Imagen 2" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-39.jpg" alt="Imagen 3" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-58.jpg" alt="Imagen 4" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-67.jpg" alt="Imagen 5" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-87.jpg" alt="Imagen 6" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-89.jpg" alt="Imagen 7" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-113.jpg" alt="Imagen 8" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-120.jpg" alt="Imagen 9" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-129.jpg" alt="Imagen 10" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-139.jpg" alt="Imagen 11" onclick="openModal(this.src)">
+        <img src="img/galeria/SF-INV-XV-DANAE-148.jpg" alt="Imagen 12" onclick="openModal(this.src)">
+      </div>
+      <a class="prev" onclick="moveSlide(-1)">❮</a>
+      <a class="next" onclick="moveSlide(1)">❯</a>
+    </div>
+  </section>
+
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script>
+    const slide = document.getElementById('carousel');
+    const images = slide.querySelectorAll('img');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const width = slide.clientWidth;
+      slide.style.transform = 'translateX(' + (-currentIndex * width) + 'px)';
+    }
+
+    function moveSlide(n) {
+      currentIndex = (currentIndex + n + images.length) % images.length;
+      updateCarousel();
+    }
+
+    function openModal(src) {
+      document.getElementById("imageModal").style.display = "block";
+      document.getElementById("modalImage").src = src;
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+
+    setInterval(() => moveSlide(1), 4000);
+
+    window.addEventListener("resize", updateCarousel);
+    window.addEventListener("load", updateCarousel);
+  </script>
+</body>
+</html>
