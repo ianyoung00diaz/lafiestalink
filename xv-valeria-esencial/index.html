@@ -177,28 +177,109 @@
   <p><strong>Nombre:</strong> Laura Zavala<br><strong>CLABE:</strong> 032180000118359719</p>
 </section>
 
-<!-- GALERÍA -->
 <section class="section">
   <h2>Galería</h2>
-  <div class="gallery-container">
-    <img src="SF-INV-XV-DANAE-6.jpg" alt="Foto 1" />
-    <img src="SF-INV-XV-DANAE-26.jpg" alt="Foto 26" />
-    <img src="SF-INV-XV-DANAE-27.jpg" alt="Foto 27" />
-    <img src="SF-INV-XV-DANAE-28.jpg" alt="Foto 28" />
-    <img src="SF-INV-XV-DANAE-29.jpg" alt="Foto 29" />
-    <img src="SF-INV-XV-DANAE-30.jpg" alt="Foto 30" />
-    <img src="SF-INV-XV-DANAE-31.jpg" alt="Foto 31" />
+  <div class="gallery-container" id="gallery">
+    <img src="SF-INV-XV-DANAE-6.jpg">
+    <img src="SF-INV-XV-DANAE-31.jpg">
+    <img src="SF-INV-XV-DANAE-39.jpg">
+    <img src="SF-INV-XV-DANAE-58.jpg">
+    <img src="SF-INV-XV-DANAE-67.jpg">
+    <img src="SF-INV-XV-DANAE-87.jpg">
+    <img src="SF-INV-XV-DANAE-89.jpg">
+    <img src="SF-INV-XV-DANAE-113.jpg">
+    <img src="SF-INV-XV-DANAE-120.jpg">
+    <img src="SF-INV-XV-DANAE-129.jpg">
+    <img src="SF-INV-XV-DANAE-139.jpg">
+    <img src="SF-INV-XV-DANAE-148.jpg">
   </div>
 </section>
 
-<section class="section" style="background-color: #f5f0e9;">
-  <h2 style="color: #da4167;">#XVVALERIA</h2>
-  <p style="font-family: 'Great Vibes', cursive;">Comparte tus fotos con el hashtag en tus redes sociales.</p>
-  <div class="social-icons">
-    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-  </div>
-</section>
+<div class="lightbox" id="lightbox">
+  <button class="nav-btn prev-btn" onclick="navigate(-1)">❮</button>
+  <img id="lightbox-img">
+  <button class="nav-btn next-btn" onclick="navigate(1)">❯</button>
+</div>
+
+<style>
+  .gallery-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+  }
+  .gallery-container img {
+    scroll-snap-align: center;
+    height: 500px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .gallery-container img:hover {
+    transform: scale(1.05);
+  }
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .lightbox img {
+    max-height: 90%;
+    max-width: 90%;
+  }
+  .lightbox.show {
+    display: flex;
+  }
+  .nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .prev-btn { left: 20px; }
+  .next-btn { right: 20px; }
+</style>
+
+<script>
+  const images = document.querySelectorAll(".gallery-container img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  let currentIndex = 0;
+
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      currentIndex = index;
+      lightboxImg.src = img.src;
+      lightbox.classList.add("show");
+    });
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("show");
+    }
+  });
+
+  function navigate(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = images.length - 1;
+    if (currentIndex >= images.length) currentIndex = 0;
+    lightboxImg.src = images[currentIndex].src;
+  }
+</script>
+
 
 <footer class="footer">
   Hecho con ✨ por La Fiesta Link
