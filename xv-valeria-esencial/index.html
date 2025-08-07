@@ -307,6 +307,16 @@
     music.pause();
   }
 }
+  // Reproducir música al primer clic en cualquier parte
+document.addEventListener('click', function playMusicOnce() {
+  const music = document.getElementById("bg-music");
+  if (music.paused) {
+    music.muted = false;
+    music.play().catch(() => {});
+  }
+  document.removeEventListener('click', playMusicOnce);
+});
+
 </script>
 </body>
 </html>
